@@ -79,18 +79,6 @@ GOOGLE_FACTCHECK_API_KEY=sua_chave_aqui
 
 Sem essa chave, o sistema ainda funciona, mas não consulta a base externa do Google Fact Check Tools.
 
-## Por que antes dava 34% em quase tudo?
-
-A versão anterior fazia uma conta muito rígida. Em páginas comuns, geralmente apareciam os mesmos sinais:
-
-- tinha HTTPS: somava pontos;
-- não encontrava autor: perdia pontos;
-- não encontrava data: perdia pontos;
-- não encontrava fontes oficiais: perdia pontos;
-- tinha texto suficiente: somava poucos pontos.
-
-Essa combinação frequentemente levava ao mesmo resultado. Agora o sistema considera mais fatores e, quando configurado, usa IA para avaliar o conteúdo de forma contextual.
-
 ## Estrutura
 
 ```text
