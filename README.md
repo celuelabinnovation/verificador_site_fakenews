@@ -4,7 +4,7 @@ Site simples em Flask para triagem automática de confiabilidade de páginas web
 
 ## O que mudou nesta versão
 
-Esta versão corrige o problema em que muitos sites terminavam com o mesmo resultado, como 34%. O cálculo local agora é mais dinâmico e considera mais sinais da página. Além disso, foi adicionada uma camada opcional de IA: quando `OPENAI_API_KEY` está configurada, o sistema envia o conteúdo extraído para uma análise estruturada e retorna pontos possivelmente reais, não verificados, suspeitos ou falsos.
+O cálculo local agora é mais dinâmico e considera mais sinais da página. Além disso, foi adicionada uma camada opcional de IA: quando `OPENAI_API_KEY` está configurada, o sistema envia o conteúdo extraído para uma análise estruturada e retorna pontos possivelmente reais, não verificados, suspeitos ou falsos.
 
 ## O que ele faz
 
