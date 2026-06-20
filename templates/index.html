@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Verificador de Verdade</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <main class="container">
+    <section class="hero">
+      <div class="badge">MVP com IA opcional</div>
+      <h1>Verificador de Verdade</h1>
+      <p>Cole o link de uma notícia, página ou artigo. O sistema extrai o conteúdo, identifica afirmações verificáveis, cruza sinais de fonte e, quando a chave estiver configurada, usa IA para classificar o que parece real, não verificado ou suspeito.</p>
+      <form id="checkForm">
+        <input id="urlInput" type="url" placeholder="Cole aqui o link da página" required>
+        <button type="submit">Verificar</button>
+      </form>
+      <p class="small">Resultado automatizado: use como triagem, não como sentença final.</p>
+    </section>
+
+    <section id="loading" class="card hidden">
+      <div class="loader"></div>
+      <p>Analisando a página, extraindo afirmações e consultando IA quando disponível...</p>
+    </section>
+
+    <section id="error" class="card error hidden"></section>
+
+    <section id="result" class="hidden">
+      <div class="score-card">
+        <div>
+          <p class="label">Índice de confiabilidade</p>
+          <h2 id="scoreText">0%</h2>
+          <p id="classification"></p>
+          <div class="score-meta">
+            <span>Modo: <strong id="analysisMode">-</strong></span>
+            <span>Local: <strong id="localScore">-</strong></span>
+            <span>IA: <strong id="aiScore">-</strong></span>
+          </div>
+        </div>
+        <div class="gauge">
+          <div id="gaugeFill"></div>
+        </div>
+      </div>
+
+      <div class="grid">
+        <div class="card">
+          <h3>Dados da página</h3>
+          <p><strong>Domínio:</strong> <span id="domain"></span></p>
+          <p><strong>Título:</strong> <span id="title"></span></p>
+          <p><strong>Autor/Fonte:</strong> <span id="author"></span></p>
+          <p><strong>Data:</strong> <span id="published"></span></p>
+        </div>
+
+        <div id="aiBox" class="card">
+          <h3>Síntese da IA</h3>
+          <p id="aiSummary"></p>
+          <p><strong>Confiança da IA:</strong> <span id="aiConfidence"></span></p>
+          <p id="aiWarning" class="small warning hidden"></p>
+        </div>
+
+        <div class="card">
+          <h3>Possivelmente real/verificável</h3>
+          <ul id="realList"></ul>
+        </div>
+
+        <div class="card">
+          <h3>Não verificado</h3>
+          <ul id="unverifiedList"></ul>
+        </div>
+
+        <div class="card">
+          <h3>Suspeito, exagerado ou falso</h3>
+          <ul id="suspiciousList"></ul>
+        </div>
+
+        <div class="card">
+          <h3>Recomendações de checagem</h3>
+          <ul id="recommendationList"></ul>
+        </div>
+
+        <div class="card">
+          <h3>Sinais positivos locais</h3>
+          <ul id="positiveList"></ul>
+        </div>
+
+        <div class="card">
+          <h3>Pontos de risco locais</h3>
+          <ul id="riskList"></ul>
+        </div>
+
+        <div class="card wide">
+          <h3>Afirmações extraídas da página</h3>
+          <ul id="claimsList"></ul>
+        </div>
+
+        <div class="card wide">
+          <h3>Fontes fortes detectadas</h3>
+          <ul id="linksList"></ul>
+        </div>
+
+        <div class="card wide">
+          <h3>Checagens externas</h3>
+          <ul id="checksList"></ul>
+          <p class="small">Para ativar resultados externos de fact-checking, configure GOOGLE_FACTCHECK_API_KEY no servidor.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script src="/static/app.js"></script>
+</body>
+</html>
